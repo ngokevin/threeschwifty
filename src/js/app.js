@@ -19,20 +19,6 @@ if ('serviceWorker' in navigator) {
 
 registerComponent('text', aframeTextComponent);
 
-const Image = props => (
-  <li className="asset" data-type="image" key={props.key}>
-    {!props.visible &&
-      <p>Loading...</p>
-    }
-    {props.visible &&
-      <img onClick={props.onClick} src={props.src}/>
-    }
-    {props.visible &&
-      <div className="asset-delete" onClick={props.onDelete}>x</div>
-    }
-  </li>
-);
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -149,8 +135,8 @@ class App extends React.Component {
 
           <ul className="assets">
             {this.state.assets.map((asset, i) =>
-              <LazyLoad offset={4 * window.innerHeight} scroll={false} wheel={true}>
-                <Image key={i} onClick={this.setActiveIndex(i)}
+              <LazyLoad key={i} offset={4 * window.innerHeight} scroll={false} wheel={true}>
+                <Asset onClick={this.setActiveIndex(i)}
                        onDelete={this.removeAsset(i)} src={asset}/>
               </LazyLoad>
             )}
@@ -159,6 +145,37 @@ class App extends React.Component {
       </div>
     );
   }
+}
+
+function Asset (props) {
+  const isImage = props.src.endsWith('.jpg') || props.src.endsWith('.png') ||
+                  props.src.endsWith('.gif');
+  const isVideo = !isImage;
+
+  function showVideoThumbnail (video) {
+    video.play();
+    setTimeout(() => {
+      video.pause();
+    }, 100);
+  }
+
+  return (
+    <li className="asset-item" data-type={isImage && 'image' || 'video'} key={props.key}>
+      {!props.visible &&
+        <p>Loading...</p>
+      }
+      {props.visible && isImage &&
+        <img className="asset" onClick={props.onClick} src={props.src}/>
+      }
+      {props.visible && isVideo &&
+        <video autoplay="false" className="asset" onClick={props.onClick} preload="none"
+               ref={showVideoThumbnail} src={props.src}/>
+      }
+      {props.visible &&
+        <div className="asset-delete" onClick={props.onDelete}>x</div>
+      }
+    </li>
+  );
 }
 
 ReactDOM.render(<App/>, document.querySelector('.scene-container'));
