@@ -1,6 +1,7 @@
 $black = #111;
 $gray = #CCC;
 $white = #EEE;
+$red = #F33535;
 
 $border = $gray;
 $highlight = #CCF;
@@ -71,12 +72,13 @@ input
   +desktop()
     flex-direction column
 
-  li
+  .asset
     align-items center
     display flex
     justify-content center
     margin 2.5px 0
     overflow hidden
+    position relative
     width 100%
 
     p
@@ -97,6 +99,18 @@ input
       box-shadow 1px 1px 1px 1px $highlight
     &:hover
       transform scale(2)
+
+
+.asset-delete
+  color $red
+  font-family monospace
+  padding: 5px
+  position absolute
+  right 2px
+  top 2px
+
+  &:hover
+    cursor pointer
 
 
 canvas

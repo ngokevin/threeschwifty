@@ -16,12 +16,15 @@ import Cursor from './components/Cursor';
 registerComponent('text', aframeTextComponent);
 
 const Image = props => (
-  <li data-type="image" key={props.key}>
+  <li className="asset" data-type="image" key={props.key}>
     {!props.visible &&
       <p>Loading...</p>
     }
     {props.visible &&
       <img onClick={props.onClick} src={props.src}/>
+    }
+    {props.visible &&
+      <div className="asset-delete" onClick={props.onDelete}>x</div>
     }
   </li>
 );
@@ -37,9 +40,16 @@ class App extends React.Component {
       }
     */
 
+    // Check for assets in localStorage.
+    let assets = [];
+    const storedAssets = localStorage.getItem('v1:assets');
+    if (storedAssets) {
+      assets = JSON.parse(storedAssets);
+    }
+
     this.state = {
       activeIndex: 0,
-      assets: [],
+      assets: assets,
       input: ''
     };
 
@@ -48,6 +58,9 @@ class App extends React.Component {
     key('space', this.next);
   }
 
+  /**
+   * Add asset to list.
+   */
   addAsset = e => {
     e.preventDefault();
 
@@ -57,8 +70,26 @@ class App extends React.Component {
       assets: assets,
       input: ''
     });
+    localStorage.setItem('v1:assets', JSON.stringify(assets));
   }
 
+  /**
+   * Remove asset.
+   */
+  removeAsset = i => {
+    return () => {
+      const assets = this.state.assets.slice();
+      assets.splice(i, 1);
+      this.setState({
+        assets: assets
+      });
+      localStorage.setItem('v1:assets', JSON.stringify(assets));
+    }
+  }
+
+  /**
+   * Go to previous asset.
+   */
   prev = () => {
     let index = this.state.activeIndex - 1;
     if (index < 0) {
@@ -69,6 +100,9 @@ class App extends React.Component {
     });
   }
 
+  /**
+   * Go to next asset.
+   */
   next = () => {
     let index = this.state.activeIndex + 1;
     if (index === this.state.assets.length) {
@@ -79,6 +113,9 @@ class App extends React.Component {
     });
   }
 
+  /**
+   * Jump to asset.
+   */
   setActiveIndex = i => {
     return () => {
       this.setState({
@@ -109,7 +146,8 @@ class App extends React.Component {
           <ul className="assets">
             {this.state.assets.map((asset, i) =>
               <LazyLoad offset={4 * window.innerHeight} scroll={false} wheel={true}>
-                <Image key={i} onClick={this.setActiveIndex(i)} src={asset}/>
+                <Image key={i} onClick={this.setActiveIndex(i)}
+                       onDelete={this.removeAsset(i)} src={asset}/>
               </LazyLoad>
             )}
           </ul>
