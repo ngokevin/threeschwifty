@@ -7,6 +7,7 @@ import {component as aframeTextComponent} from 'aframe-text-component';
 import key from 'keymaster';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Url from 'urlgray';
 
 import AssetDashboard from './components/AssetDashboard';
 import AssetSphere from './components/AssetSphere';
@@ -30,16 +31,9 @@ class App extends React.Component {
       }
     */
 
-    // Check for assets in localStorage.
-    let assets = [];
-    const storedAssets = localStorage.getItem('v1:assets');
-    if (storedAssets) {
-      assets = JSON.parse(storedAssets);
-    }
-
     this.state = {
       activeIndex: 0,
-      assets: assets,
+      assets: getInitialAssets(),
       input: ''
     };
 
@@ -129,6 +123,23 @@ class App extends React.Component {
       </div>
     );
   }
+}
+
+function getInitialAssets () {
+   if (window.location.search) {
+    // Check for assets in the URL.
+    var query = Url(window.location.search).query;
+    if (query.share) {
+      return JSON.parse(query.share);
+    }
+  } else {
+    // Check for assets in localStorage.
+    const storedAssets = localStorage.getItem('v1:assets');
+    if (storedAssets) {
+      return JSON.parse(storedAssets);
+    }
+  }
+  return [];
 }
 
 ReactDOM.render(<App/>, document.querySelector('.scene-container'));

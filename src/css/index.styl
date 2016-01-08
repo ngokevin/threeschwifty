@@ -5,6 +5,7 @@ $red = #F33535;
 
 $border = $gray;
 $highlight = #CCF;
+$text = $white;
 
 
 desktop() {
@@ -24,8 +25,9 @@ body
 
 
 a,
-h1
-  color $white
+h1,
+label
+  color $text
   font-family monospace
 
 
@@ -126,6 +128,18 @@ input
 
   &:hover
     cursor pointer
+
+
+.share
+  display flex
+  max-height 0
+  transition max-height .2s ease
+
+  &[data-visible="true"] {
+    margin-bottom 5px
+    max-height 100%
+    transition max-height .2s ease
+  }
 
 
 canvas
