@@ -13,6 +13,10 @@ import AssetSphere from './components/AssetSphere';
 import Camera from './components/Camera';
 import Cursor from './components/Cursor';
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/js/workers/cache.js');
+}
+
 registerComponent('text', aframeTextComponent);
 
 const Image = props => (
