@@ -1,19 +1,40 @@
+$black = #111;
+$gray = #CCC;
+$white = #EEE;
+
+$border = $gray;
+$highlight = #CCF;
+
+
 desktop() {
   @media (min-width: 768px) {
     {block}
   }
 }
 
+
 html
   height 100%
   position static !important
 
+
 body
   height 100%
-  overflow auto !important
+
+
+h1
+  color $white
+  font-family monospace
+
 
 ul
+  margin 0
   padding 0
+
+
+input
+  border 0
+
 
 .scene-container
   display flex
@@ -28,17 +49,22 @@ ul
 
 
 .asset-dashboard
+  background $black
   height 100%
-  padding 0 5px
+  padding 5px
+
+  h1
+    margin 0 0 5px
 
   input
-    padding 5px
-    width unquote('calc(100% - 15px)')
+    padding 10px 5px
+    width unquote('calc(100% - 10px)')
 
 
 .assets
   display flex
   overflow scroll
+  margin-top 5px
   max-height 82.5%
   width 100%
 
@@ -46,16 +72,28 @@ ul
     flex-direction column
 
   li
+    align-items center
+    display flex
+    justify-content center
+    margin 2.5px 0
     width 100%
+
+    p
+      box-shadow 1px 1px 1px 1px $border
+      color $gray
+      font-style italic
+      padding 50px 0
+      text-align center
+      width 100%
 
   img
     cursor pointer
-    max-width: 100%
+    width: 100%
 
     &[data-asset-active]
-      box-shadow 1px 1px 1px 1px #CCF
+      box-shadow 1px 1px 1px 1px $highlight
     &:hover
-      box-shadow 1px 1px 1px 1px #CCC
+      box-shadow 1px 1px 1px 1px $border
 
 
 canvas

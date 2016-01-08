@@ -6,8 +6,20 @@ import {Animation, Entity, Scene} from 'aframe-react';
 import key from 'keymaster';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import LazyLoad from 'react-lazyload';
 
 import AssetSphere from './components/AssetSphere';
+
+const Image = props => (
+  <li data-type="image" key={props.key}>
+    {!props.visible &&
+      <p>Loading...</p>
+    }
+    {props.visible &&
+      <img onClick={props.onClick} src={props.src}/>
+    }
+  </li>
+);
 
 class App extends React.Component {
   constructor(props) {
@@ -23,16 +35,28 @@ class App extends React.Component {
       assets: assets
     };
 
-    key('left', () => {
-      this.setState({
-        activeIndex: this.state.activeIndex - 1
-      });
-    });
+    key('left', this.prev);
+    key('right', this.next);
+    key('space', this.next);
+  }
 
-    key('right', () => {
-      this.setState({
-        activeIndex: this.state.activeIndex + 1
-      });
+  prev = () => {
+    let index = this.state.activeIndex - 1;
+    if (index < 0) {
+      index = this.state.assets.length - 1;
+    }
+    this.setState({
+      activeIndex: index
+    });
+  }
+
+  next = () => {
+    let index = this.state.activeIndex + 1;
+    if (index === this.state.assets.length) {
+      index = 0;
+    }
+    this.setState({
+      activeIndex: index
     });
   }
 
@@ -47,23 +71,18 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <a-assets>
-          {this.state.assets.map((asset, i) =>
-            <img id={`asset-${i}`} src={asset}/>
-          )}
-        </a-assets>
-
         <Scene>
-          <AssetSphere src={`#asset-${this.state.activeIndex}`}/>
+          <AssetSphere src={`url(${this.state.assets[this.state.activeIndex]})`}/>
         </Scene>
 
         <div className="asset-dashboard">
+          <h1>three schwifty</h1>
           <input placeholder="Import image or video from URL..." type="text"/>
           <ul className="assets">
             {this.state.assets.map((asset, i) =>
-              <li data-type="image" key={i}>
-                <img onClick={this.setActiveIndex(i)} src={asset}/>
-              </li>
+              <LazyLoad offset={4 * window.innerHeight} scroll={false} wheel={true}>
+                <Image key={i} onClick={this.setActiveIndex(i)} src={asset}/>
+              </LazyLoad>
             )}
           </ul>
         </div>
