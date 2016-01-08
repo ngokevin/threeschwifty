@@ -2,6 +2,8 @@ import React from 'react';
 import LazyLoad from 'react-lazyload';
 import Url from 'urlgray';
 
+import DeferredImage from './DeferredImage';
+
 export default class AssetDashboard extends React.Component {
   static propTypes = {
     addAsset: React.PropTypes.func,
@@ -68,7 +70,7 @@ function Asset (props) {
         <p>Loading...</p>
       }
       {props.visible && isImage &&
-        <img className="asset" onClick={props.onClick} src={props.src}/>
+        <DeferredImage className="asset" onClick={props.onClick} src={props.src}/>
       }
       {props.visible && isVideo &&
         <video autoPlay="false" className="asset" onClick={props.onClick} preload="none"
