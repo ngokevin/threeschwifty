@@ -29,7 +29,7 @@ export default class AssetDashboard extends React.Component {
 
         <Share assets={this.props.assets} visible={this.state.showShare}/>
 
-        <form onSubmit={this.props.addAsset}>
+        <form onSubmit={this.props.addAsset(this.state.assetInput)}>
           <input className="asset-input"
                  onChange={e => {this.setState({assetInput: e.target.value});}}
                  placeholder="Import image or video from URL..." type="text"
@@ -86,7 +86,7 @@ function Share (props) {
 
   return (
     <div className="share" data-visible={props.visible}>
-      <label for="share-link">Share this link!</label>
+      <label htmlFor="share-link">Share this link!</label>
       <input id="share-link" value={link}/>
     </div>
   );

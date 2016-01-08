@@ -45,16 +45,18 @@ class App extends React.Component {
   /**
    * Add asset to list.
    */
-  addAsset = e => {
-    e.preventDefault();
+  addAsset = asset => {
+    return e => {
+      e.preventDefault();
 
-    const assets = this.state.assets.slice();
-    assets.push(this.state.input);
-    this.setState({
-      assets: assets,
-      input: ''
-    });
-    localStorage.setItem('v1:assets', JSON.stringify(assets));
+      const assets = this.state.assets.slice();
+      assets.push(asset);
+      this.setState({
+        assets: assets,
+        input: ''
+      });
+      localStorage.setItem('v1:assets', JSON.stringify(assets));
+    };
   }
 
   /**
