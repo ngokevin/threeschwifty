@@ -85,15 +85,15 @@
 
 	var _AssetDashboard2 = _interopRequireDefault(_AssetDashboard);
 
-	var _AssetSphere = __webpack_require__(587);
+	var _AssetSphere = __webpack_require__(588);
 
 	var _AssetSphere2 = _interopRequireDefault(_AssetSphere);
 
-	var _Camera = __webpack_require__(590);
+	var _Camera = __webpack_require__(591);
 
 	var _Camera2 = _interopRequireDefault(_Camera);
 
-	var _Cursor = __webpack_require__(591);
+	var _Cursor = __webpack_require__(592);
 
 	var _Cursor2 = _interopRequireDefault(_Cursor);
 
@@ -291,7 +291,7 @@
 
 
 	// module
-	exports.push([module.id, "html {\n  height: 100%;\n  position: static !important;\n}\nbody {\n  height: 100%;\n}\na,\nh1,\nlabel {\n  color: #eee;\n  font-family: monospace;\n}\nul {\n  margin: 0;\n  padding: 0;\n}\ninput {\n  border: 0;\n}\n.scene-container {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: end;\n  -webkit-justify-content: flex-end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n  height: 100%;\n  width: 100%;\n}\n.app {\n  height: 100%;\n  width: 25%;\n}\n.asset-dashboard {\n  background: #111;\n  display: none;\n  height: 100%;\n  padding: 5px;\n}\n@media (min-width: 768px) {\n  .asset-dashboard {\n    display: block;\n  }\n}\n.asset-dashboard input {\n  padding: 10px 5px;\n  width: calc(100% - 10px);\n}\n.asset-dashboard-header {\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n.asset-dashboard-title {\n  margin: 0 0 5px;\n}\n.assets {\n  overflow: scroll;\n  margin-top: 5px;\n  max-height: 82.5%;\n  width: 100%;\n}\n.asset-item {\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  height: 70px;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin: 5px 0;\n  overflow: hidden;\n  position: relative;\n  width: 100%;\n}\n.asset-item p {\n  box-shadow: 1px 1px 1px 1px #ccc;\n  color: #ccc;\n  font-style: italic;\n  padding: 50px 0;\n  text-align: center;\n  width: 100%;\n}\n.asset {\n  cursor: pointer;\n  -webkit-transition: -webkit-transform 0.2s ease;\n  transition: -webkit-transform 0.2s ease;\n  transition: transform 0.2s ease;\n  transition: transform 0.2s ease, -webkit-transform 0.2s ease;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  width: 100%;\n}\n.asset[data-asset-active] {\n  box-shadow: 1px 1px 1px 1px #ccf;\n}\n.asset:hover {\n  -webkit-transform: scale(2);\n          transform: scale(2);\n}\n.asset-delete {\n  color: #eee;\n  font-family: monospace;\n  padding: 5px;\n  position: absolute;\n  right: 2px;\n  top: 2px;\n}\n.asset-delete:hover {\n  cursor: pointer;\n}\n.share {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  max-height: 0;\n  -webkit-transition: max-height 0.2s ease;\n  transition: max-height 0.2s ease;\n}\n.share[data-visible=\"true\"] {\n  margin-bottom: 5px;\n  max-height: 100%;\n  -webkit-transition: max-height 0.2s ease;\n  transition: max-height 0.2s ease;\n}\n@media (min-width: 768px) {\n  canvas {\n    height: 100% !important;\n    width: 75% !important;\n  }\n}\n", ""]);
+	exports.push([module.id, "html {\n  height: 100%;\n  position: static !important;\n}\nbody {\n  height: 100%;\n}\na,\nh1,\nlabel {\n  color: #eee;\n  font-family: monospace;\n}\nul {\n  margin: 0;\n  padding: 0;\n}\ninput {\n  border: 0;\n}\n.scene-container {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: end;\n  -webkit-justify-content: flex-end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n  height: 100%;\n  width: 100%;\n}\n.app {\n  height: 100%;\n  width: 25%;\n}\n.asset-dashboard {\n  background: #111;\n  display: none;\n  height: 100%;\n  padding: 5px;\n}\n@media (min-width: 768px) {\n  .asset-dashboard {\n    display: block;\n  }\n}\n.asset-dashboard input {\n  padding: 10px 5px;\n  width: calc(100% - 10px);\n}\n.asset-dashboard-header {\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n  -webkit-justify-content: space-between;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n}\n.asset-dashboard-title {\n  margin: 0 0 5px;\n}\n.assets {\n  overflow: scroll;\n  margin-top: 5px;\n  max-height: 82.5%;\n  width: 100%;\n}\n.asset-item {\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  height: 70px;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin: 5px 0;\n  overflow: hidden;\n  position: relative;\n  width: 100%;\n}\n.asset-item p {\n  box-shadow: 1px 1px 1px 1px #ccc;\n  color: #ccc;\n  font-style: italic;\n  padding: 50px 0;\n  text-align: center;\n  width: 100%;\n}\n.asset {\n  cursor: pointer;\n  -webkit-transition: -webkit-transform 0.2s ease;\n  transition: -webkit-transform 0.2s ease;\n  transition: transform 0.2s ease;\n  transition: transform 0.2s ease, -webkit-transform 0.2s ease;\n  -webkit-transform: scale(1);\n          transform: scale(1);\n  width: 100%;\n}\n.asset[data-asset-active] {\n  box-shadow: 1px 1px 1px 1px #ccf;\n}\n.asset:hover {\n  -webkit-transform: scale(2);\n          transform: scale(2);\n}\n.asset-delete {\n  color: #eee;\n  font-family: monospace;\n  padding: 5px;\n  position: absolute;\n  right: 2px;\n  top: 2px;\n}\n.asset-delete:hover {\n  cursor: pointer;\n}\n.share {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  max-height: 0;\n  -webkit-transition: max-height 0.2s ease;\n  transition: max-height 0.2s ease;\n}\n.share[data-visible=\"true\"] {\n  margin-bottom: 5px;\n  max-height: 100%;\n  -webkit-transition: max-height 0.2s ease;\n  transition: max-height 0.2s ease;\n}\n.share input {\n  z-index: -1;\n}\n@media (min-width: 768px) {\n  canvas {\n    height: 100% !important;\n    width: 75% !important;\n  }\n}\n", ""]);
 
 	// exports
 
@@ -103733,6 +103733,10 @@
 
 	var _urlgray2 = _interopRequireDefault(_urlgray);
 
+	var _DeferredImage = __webpack_require__(587);
+
+	var _DeferredImage2 = _interopRequireDefault(_DeferredImage);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -103841,7 +103845,7 @@
 	      null,
 	      'Loading...'
 	    ),
-	    props.visible && isImage && _react2.default.createElement('img', { className: 'asset', onClick: props.onClick, src: props.src }),
+	    props.visible && isImage && _react2.default.createElement(_DeferredImage2.default, { className: 'asset', onClick: props.onClick, src: props.src }),
 	    props.visible && isVideo && _react2.default.createElement('video', { autoPlay: 'false', className: 'asset', onClick: props.onClick, preload: 'none',
 	      ref: showVideoThumbnail, src: props.src }),
 	    props.visible && _react2.default.createElement(
@@ -104238,6 +104242,65 @@
 /* 587 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(424);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var DeferredImage = (function (_React$Component) {
+	  _inherits(DeferredImage, _React$Component);
+
+	  function DeferredImage() {
+	    var _Object$getPrototypeO;
+
+	    var _temp, _this, _ret;
+
+	    _classCallCheck(this, DeferredImage);
+
+	    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	      args[_key] = arguments[_key];
+	    }
+
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(DeferredImage)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.renderImg = function (img) {
+	      img.setAttribute('src', _this.props.src);
+	    }, _temp), _possibleConstructorReturn(_this, _ret);
+	  }
+
+	  _createClass(DeferredImage, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2.default.createElement("img", { className: this.props.className, onClick: this.props.onClick,
+	        ref: this.renderImg });
+	    }
+	  }]);
+
+	  return DeferredImage;
+	})(_react2.default.Component);
+
+	DeferredImage.propTypes = {
+	  src: _react2.default.PropTypes.string.isRequired
+	};
+	exports.default = DeferredImage;
+
+/***/ },
+/* 588 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -104250,7 +104313,7 @@
 
 	var _aframeReact = __webpack_require__(260);
 
-	var _deepAssign = __webpack_require__(588);
+	var _deepAssign = __webpack_require__(589);
 
 	var _deepAssign2 = _interopRequireDefault(_deepAssign);
 
@@ -104367,11 +104430,11 @@
 	}
 
 /***/ },
-/* 588 */
+/* 589 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
-	var isObj = __webpack_require__(589);
+	var isObj = __webpack_require__(590);
 	var hasOwnProperty = Object.prototype.hasOwnProperty;
 	var propIsEnumerable = Object.prototype.propertyIsEnumerable;
 
@@ -104441,7 +104504,7 @@
 
 
 /***/ },
-/* 589 */
+/* 590 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -104452,7 +104515,7 @@
 
 
 /***/ },
-/* 590 */
+/* 591 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -104480,7 +104543,7 @@
 	};
 
 /***/ },
-/* 591 */
+/* 592 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
