@@ -9,6 +9,8 @@ import ReactDOM from 'react-dom';
 import LazyLoad from 'react-lazyload';
 
 import AssetSphere from './components/AssetSphere';
+import Camera from './components/Camera';
+import Cursor from './components/Cursor';
 
 const Image = props => (
   <li data-type="image" key={props.key}>
@@ -72,7 +74,9 @@ class App extends React.Component {
     return (
       <div className="app">
         <Scene>
-          <AssetSphere src={`url(${this.state.assets[this.state.activeIndex]})`}/>
+          <Camera><Cursor/></Camera>
+          <AssetSphere onNext={this.next} onPrev={this.prev}
+                       src={`url(${this.state.assets[this.state.activeIndex]})`}/>
         </Scene>
 
         <div className="asset-dashboard">
