@@ -22,7 +22,7 @@ export default class AssetDashboard extends React.Component {
     return (
       <div className="asset-dashboard">
         <div className="asset-dashboard-header">
-          <h1 className="asset-dashboard-title">three schwifty</h1>
+          <h1 className="asset-dashboard-title">threeschwifty</h1>
           <a className="asset-dashboard-share-link" href="#share"
              onClick={() => {this.setState({showShare: !this.state.showShare});}}>share</a>
         </div>
