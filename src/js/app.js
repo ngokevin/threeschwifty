@@ -30,19 +30,33 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    let assets = ['img/360.jpg'];
-    for (var i = 1 ; i <= 226; i++) {
-      assets.push(`img/360%20(${i}).jpg`);
-    }
+    /*
+      let assets = ['img/360.jpg'];
+      for (var i = 1 ; i <= 226; i++) {
+        assets.push(`img/360%20(${i}).jpg`);
+      }
+    */
 
     this.state = {
       activeIndex: 0,
-      assets: assets
+      assets: [],
+      input: ''
     };
 
     key('left', this.prev);
     key('right', this.next);
     key('space', this.next);
+  }
+
+  addAsset = e => {
+    e.preventDefault();
+
+    const assets = this.state.assets.slice();
+    assets.push(this.state.input);
+    this.setState({
+      assets: assets,
+      input: ''
+    });
   }
 
   prev = () => {
@@ -79,12 +93,19 @@ class App extends React.Component {
         <Scene>
           <Camera><Cursor/></Camera>
           <AssetSphere onNext={this.next} onPrev={this.prev}
-                       src={`url(${this.state.assets[this.state.activeIndex]})`}/>
+                       src={this.state.assets.length &&
+                            `url(${this.state.assets[this.state.activeIndex]})`}/>
         </Scene>
 
         <div className="asset-dashboard">
           <h1>three schwifty</h1>
-          <input placeholder="Import image or video from URL..." type="text"/>
+
+          <form onSubmit={this.addAsset}>
+            <input onChange={e => {this.setState({input: e.target.value});}}
+                   placeholder="Import image or video from URL..." type="text"
+                   value={this.state.input}/>
+          </form>
+
           <ul className="assets">
             {this.state.assets.map((asset, i) =>
               <LazyLoad offset={4 * window.innerHeight} scroll={false} wheel={true}>

@@ -76,6 +76,7 @@ input
     display flex
     justify-content center
     margin 2.5px 0
+    overflow hidden
     width 100%
 
     p
@@ -88,12 +89,14 @@ input
 
   img
     cursor pointer
+    transition transform 0.2s ease;
+    transform scale(1)
     width: 100%
 
     &[data-asset-active]
       box-shadow 1px 1px 1px 1px $highlight
     &:hover
-      box-shadow 1px 1px 1px 1px $border
+      transform scale(2)
 
 
 canvas
