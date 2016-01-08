@@ -1,0 +1,148 @@
+$black = #111;
+$gray = #CCC;
+$white = #EEE;
+$red = #F33535;
+
+$border = $gray;
+$highlight = #CCF;
+$text = $white;
+
+
+desktop() {
+  @media (min-width: 768px) {
+    {block}
+  }
+}
+
+
+html
+  height 100%
+  position static !important
+
+
+body
+  height 100%
+
+
+a,
+h1,
+label
+  color $text
+  font-family monospace
+
+
+ul
+  margin 0
+  padding 0
+
+
+input
+  border 0
+
+
+.scene-container
+  display flex
+  justify-content flex-end
+  height 100%
+  width 100%
+
+
+.app
+  height 100%
+  width 25%
+
+
+.asset-dashboard
+  background $black
+  display: none;
+  height 100%
+  padding 5px
+
+  +desktop() {
+    display block
+  }
+
+  input
+    padding 10px 5px
+    width unquote('calc(100% - 10px)')
+
+
+.asset-dashboard-header
+  align-items center
+  display flex
+  justify-content space-between
+
+
+.asset-dashboard-title
+  margin 0 0 5px
+
+
+.assets
+  display flex
+  overflow scroll
+  margin-top 5px
+  max-height 82.5%
+  width 100%
+
+  +desktop()
+    flex-direction column
+
+
+.asset-item
+  align-items center
+  display flex
+  justify-content center
+  margin 2.5px 0
+  overflow hidden
+  position relative
+  width 100%
+
+  p
+    box-shadow 1px 1px 1px 1px $border
+    color $gray
+    font-style italic
+    padding 50px 0
+    text-align center
+    width 100%
+
+
+.asset
+  cursor pointer
+  transition transform 0.2s ease;
+  transform scale(1)
+  width: 100%
+
+  &[data-asset-active]
+    box-shadow 1px 1px 1px 1px $highlight
+  &:hover
+    transform scale(2)
+
+
+.asset-delete
+  color $white
+  font-family monospace
+  padding: 5px
+  position absolute
+  right 2px
+  top 2px
+
+  &:hover
+    cursor pointer
+
+
+.share
+  display flex
+  max-height 0
+  transition max-height .2s ease
+
+  &[data-visible="true"] {
+    margin-bottom 5px
+    max-height 100%
+    transition max-height .2s ease
+  }
+
+
+canvas
+  +desktop()
+    height: 100% !important
+    width: 75% !important
