@@ -24,7 +24,9 @@
   "dependencies": {
     "aframe-core": "0.1.0",
     "aframe-react": "^1.0.0",
+    "aframe-text-component": "^0.1.0",
     "babel-polyfill": "^6.3.14",
+    "deep-assign": "^2.0.0",
     "keymaster": "^1.6.2",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",

@@ -1,8 +1,9 @@
 import '../css/index.styl';
 
-import 'aframe-core';
+import {registerComponent} from 'aframe-core';
 import 'babel-polyfill';
 import {Animation, Entity, Scene} from 'aframe-react';
+import {component as aframeTextComponent} from 'aframe-text-component';
 import key from 'keymaster';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -11,6 +12,8 @@ import LazyLoad from 'react-lazyload';
 import AssetSphere from './components/AssetSphere';
 import Camera from './components/Camera';
 import Cursor from './components/Cursor';
+
+registerComponent('text', aframeTextComponent);
 
 const Image = props => (
   <li data-type="image" key={props.key}>
