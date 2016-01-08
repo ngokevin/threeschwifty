@@ -1,0 +1,67 @@
+desktop() {
+  @media (min-width: 768px) {
+    {block}
+  }
+}
+
+html
+  height 100%
+  position static !important
+
+body
+  height 100%
+  overflow auto !important
+
+ul
+  padding 0
+
+.scene-container
+  display flex
+  justify-content flex-end
+  height 100%
+  width 100%
+
+
+.app
+  height 100%
+  width 25%
+
+
+.asset-dashboard
+  height 100%
+  padding 0 5px
+
+  input
+    padding 5px
+    width unquote('calc(100% - 15px)')
+
+
+.assets
+  display flex
+  overflow scroll
+  max-height 82.5%
+  width 100%
+
+  +desktop()
+    flex-direction column
+
+  li
+    width 100%
+
+  img
+    cursor pointer
+    max-width: 100%
+
+    &[data-asset-active]
+      box-shadow 1px 1px 1px 1px #CCF
+    &:hover
+      box-shadow 1px 1px 1px 1px #CCC
+
+
+canvas
+  height 75% !important
+  width 100% !important
+
+  +desktop()
+    height: 100% !important
+    width: 75% !important

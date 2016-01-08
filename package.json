@@ -1,0 +1,50 @@
+{
+  "name": "threeschwifty",
+  "version": "1.0.0",
+  "description": "360-degree photo and video viewer built with A-Frame VR.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "preghpages": "npm run build && rm -rf gh-pages && cp -r src gh-pages && cp index.html build/bundle.js gh-pages",
+    "ghpages": "npm run preghpages && ghpages -p gh-pages",
+    "gh-pages": "npm run ghpages",
+    "serve": "cd src && python -m SimpleHTTPServer 5999",
+    "serve-js": "webpack-dev-server --content-base src --progress --watch --history-api-fallback --inline --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ngokevin/threeschwifty.git"
+  },
+  "author": "Kevin Ngo <me@ngokevin.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ngokevin/threeschwifty/issues"
+  },
+  "homepage": "https://github.com/ngokevin/threeschwifty#readme",
+  "dependencies": {
+    "aframe-core": "0.1.0",
+    "aframe-react": "^1.0.0",
+    "babel-polyfill": "^6.3.14",
+    "keymaster": "^1.6.2",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "sw-toolbox": "^3.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "^3.1.0",
+    "babel": "^6.3.13",
+    "babel-core": "^6.3.15",
+    "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "babel-runtime": "^6.3.13",
+    "css-loader": "^0.23.1",
+    "ghpages": "0.0.3",
+    "json-loader": "^0.5.4",
+    "style-loader": "^0.13.0",
+    "stylus-loader": "^1.4.3",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  }
+}
