@@ -7,8 +7,8 @@ import {component as aframeTextComponent} from 'aframe-text-component';
 import key from 'keymaster';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LazyLoad from 'react-lazyload';
 
+import AssetDashboard from './components/AssetDashboard';
 import AssetSphere from './components/AssetSphere';
 import Camera from './components/Camera';
 import Cursor from './components/Cursor';
@@ -124,58 +124,11 @@ class App extends React.Component {
                             `url(${this.state.assets[this.state.activeIndex]})`}/>
         </Scene>
 
-        <div className="asset-dashboard">
-          <h1>three schwifty</h1>
-
-          <form onSubmit={this.addAsset}>
-            <input onChange={e => {this.setState({input: e.target.value});}}
-                   placeholder="Import image or video from URL..." type="text"
-                   value={this.state.input}/>
-          </form>
-
-          <ul className="assets">
-            {this.state.assets.map((asset, i) =>
-              <LazyLoad key={i} offset={4 * window.innerHeight} scroll={false} wheel={true}>
-                <Asset onClick={this.setActiveIndex(i)}
-                       onDelete={this.removeAsset(i)} src={asset}/>
-              </LazyLoad>
-            )}
-          </ul>
-        </div>
+        <AssetDashboard addAsset={this.addAsset} assets={this.state.assets}
+                        removeAsset={this.removeAsset} setActiveIndex={this.setActiveIndex}/>
       </div>
     );
   }
-}
-
-function Asset (props) {
-  const isImage = props.src.endsWith('.jpg') || props.src.endsWith('.png') ||
-                  props.src.endsWith('.gif');
-  const isVideo = !isImage;
-
-  function showVideoThumbnail (video) {
-    video.play();
-    setTimeout(() => {
-      video.pause();
-    }, 100);
-  }
-
-  return (
-    <li className="asset-item" data-type={isImage && 'image' || 'video'} key={props.key}>
-      {!props.visible &&
-        <p>Loading...</p>
-      }
-      {props.visible && isImage &&
-        <img className="asset" onClick={props.onClick} src={props.src}/>
-      }
-      {props.visible && isVideo &&
-        <video autoplay="false" className="asset" onClick={props.onClick} preload="none"
-               ref={showVideoThumbnail} src={props.src}/>
-      }
-      {props.visible &&
-        <div className="asset-delete" onClick={props.onDelete}>x</div>
-      }
-    </li>
-  );
 }
 
 ReactDOM.render(<App/>, document.querySelector('.scene-container'));
