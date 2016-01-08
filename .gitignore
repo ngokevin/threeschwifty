@@ -1,2 +1,4 @@
-node_modules/
 *.sw[ponm]
+build/
+gh-pages/
+node_modules/
