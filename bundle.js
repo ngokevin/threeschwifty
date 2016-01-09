@@ -186,7 +186,11 @@
 	    };
 
 	    (0, _keymaster2.default)('left', _this.prev);
+	    (0, _keymaster2.default)('up', _this.prev);
+	    (0, _keymaster2.default)('j', _this.prev);
 	    (0, _keymaster2.default)('right', _this.next);
+	    (0, _keymaster2.default)('down', _this.next);
+	    (0, _keymaster2.default)('k', _this.prev);
 	    (0, _keymaster2.default)('space', _this.next);
 	    return _this;
 	  }
@@ -104277,7 +104281,9 @@
 	    }
 
 	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(DeferredImage)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.renderImg = function (img) {
-	      img.setAttribute('src', _this.props.src);
+	      if (img) {
+	        img.setAttribute('src', _this.props.src);
+	      }
 	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
 

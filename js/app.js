@@ -38,7 +38,11 @@ class App extends React.Component {
     };
 
     key('left', this.prev);
+    key('up', this.prev);
+    key('j', this.prev);
     key('right', this.next);
+    key('down', this.next);
+    key('k', this.prev);
     key('space', this.next);
   }
 

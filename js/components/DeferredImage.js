@@ -6,7 +6,9 @@ export default class DeferredImage extends React.Component {
   }
 
   renderImg = img => {
-    img.setAttribute('src', this.props.src);
+    if (img) {
+      img.setAttribute('src', this.props.src);
+    }
   }
 
   render() {
