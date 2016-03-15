@@ -103861,7 +103861,7 @@
 	}
 
 	function Share(props) {
-	  var link = (0, _urlgray2.default)(window.location.origin).q({ share: JSON.stringify(props.assets) });
+	  var link = (0, _urlgray2.default)(window.location.origin + '/threeschwifty/').q({ share: JSON.stringify(props.assets) });
 
 	  return _react2.default.createElement(
 	    'div',

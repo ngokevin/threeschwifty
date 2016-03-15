@@ -84,7 +84,7 @@ function Asset (props) {
 }
 
 function Share (props) {
-  const link = Url(window.location.origin).q({share: JSON.stringify(props.assets)});
+  const link = Url(window.location.origin + '/threeschwifty/').q({share: JSON.stringify(props.assets)});
 
   return (
     <div className="share" data-visible={props.visible}>
