@@ -132,10 +132,16 @@ input
   max-height 0
   transition max-height .2s ease
 
+  input
+    display none
+
   &[data-visible="true"]
     margin-bottom 5px
     max-height 100%
     transition max-height .2s ease
+
+    input
+      display block
 
 
 canvas
